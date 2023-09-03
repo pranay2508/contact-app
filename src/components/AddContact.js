@@ -8,10 +8,14 @@ class AddContact extends React.Component {
 
   add =(e) =>{
     e.preventDefault();
-    if(this.state.name === "" && this.state.email ===""){
-      AudioListener('All the fieilds are mandotory');
+    if(this.state.name === "" || this.state.email ===""){
+      AudioListener('All the fields are mandotory');
       return
   }
+  this.props.addContactHandler(this.state);
+  this.setState({name:'' , email:''});
+  // console.log(this.state);
+  
 
 }
   render() {
